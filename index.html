@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of a Python Backend Developer & Full-Stack Web Developer.">
+    <title>RajKumar - Developer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            corePlugins: {
+                preflight: false, // Disable reset to avoid conflicts
+            },
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1E40AF',
+                        'primary-hover': '#1D4ED8',
+                        secondary: '#475569',
+                        dark: '#0F172A',
+                        card: '#FFFFFF',
+                        background: '#F8FAFC',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/interactive_hero.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">Raj<span class="highlight">Kumar</span>.</a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#about-contact" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#tools" class="nav-link">Tools</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#about-contact" class="nav-link contact-btn">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+    <section class="interactive-hero" id="home">
+
+
+        <!-- Visual Content Layer -->
+        <div class="hero-content">
+            <div class="hero-bg-overlay"></div>
+
+            <div class="container hero-split-layout">
+                <div class="hero-text">
+                    <h1 class="hero-title animate-up">
+                        <span class="greeting">Hello, I'm RajKumar.</span>
+                        <span class="role-text">Full-Stack Developer</span>
+                    </h1>
+                    <p class="hero-subtitle animate-up delay-1">I design and develop scalable, user-friendly web
+                        applications with clean code and modern technologies. Transforming ideas into high-performance
+                        digital solutions.</p>
+                    <div class="hero-buttons animate-up delay-2">
+                        <a href="https://github.com/rajkumarrptpm?tab=repositories" target="_blank"
+                            class="btn btn-primary">View Projects</a>
+                        <a href="#" class="btn btn-outline" onclick="generateResume(); return false;">Download Resume <i
+                                class="fas fa-download"></i></a>
+                    </div>
+                </div>
+
+                <div class="hero-image-container">
+                    <!-- 3x3 Grid Trigger Layers (Siblings) -->
+                    <div class="grid-cell cell-1"></div>
+                    <div class="grid-cell cell-2"></div>
+                    <div class="grid-cell cell-3"></div>
+                    <div class="grid-cell cell-4"></div>
+                    <div class="grid-cell cell-5"></div>
+                    <div class="grid-cell cell-6"></div>
+                    <div class="grid-cell cell-7"></div>
+                    <div class="grid-cell cell-8"></div>
+                    <div class="grid-cell cell-9"></div>
+
+                    <img src="assets/profile.png" alt="RajKumar" class="hero-main-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-contact section-padding" id="about-contact">
+        <div class="container">
+            <h2 class="section-title">About & Contact</h2>
+            <p class="section-subtitle">Get to know me and let's get in touch.</p>
+
+            <div class="about-contact-grid">
+                <!-- Left Column: About -->
+                <div class="about-column" id="about">
+                    <div class="about-text">
+                        <p class="lead">I bring a passion for crafting elegant and efficient solutions to complex
+                            problems.</p>
+                        <p>My commitment to detail and precision is evident in my ability to produce high-quality,
+                            maintainable code. I am adept at collaborating with cross functional teams, contributing to
+                            a positive and innovative development environment. With a strong foundation in software
+                            architecture and design principles, I thrive on the challenges of creating scalable and
+                            robust applications.</p>
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-server"></i>
+                                <span>Backend + Full-Stack</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-palette"></i>
+                                <span>Web Design</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-rocket"></i>
+                                <span>Scalable Solutions</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Contact -->
+                <div class="contact-column" id="contact">
+                    <div class="contact-wrapper">
+                        <h3 class="form-title">Send Message</h3>
+                        <form class="contact-form" id="contact-form">
+                            <div class="form-group">
+                                <input type="text" id="contact-name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="contact-email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="contact-subject" placeholder="Subject" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="contact-message" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills section-padding" id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <p class="section-subtitle">A balanced blend of backend logic, frontend creativity, and UI design expertise.
+            </p>
+
+            <div class="skills-grid">
+                <!-- Python -->
+                <div class="skill-card skill-python">
+                    <i class="fab fa-python skill-icon"></i>
+                    <h3>Python</h3>
+                </div>
+                <!-- Django -->
+                <div class="skill-card skill-django">
+                    <!-- Official Django SVG Logo -->
+                    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="3rem"
+                        height="3rem">
+                        <path fill="currentColor"
+                            d="M59.448 0h20.93v96.88c-10.737 2.04-18.62 2.855-27.181 2.855-25.551-.001-38.87-11.551-38.87-33.705 0-21.338 14.135-35.2 36.015-35.2 3.398 0 5.98.272 9.106 1.087zm0 48.765c-2.446-.815-4.485-1.086-7.067-1.086-10.6 0-16.717 6.523-16.717 17.939 0 11.145 5.845 17.26 16.582 17.26 2.309 0 4.212-.136 7.202-.542z" />
+                        <path fill="currentColor"
+                            d="M113.672 32.321V80.84c0 16.717-1.224 24.735-4.893 31.666-3.398 6.661-7.883 10.873-17.124 15.494l-19.435-9.241c9.242-4.35 13.726-8.153 16.58-14 2.99-5.979 3.943-12.91 3.943-31.122V32.321zM92.742.111h20.93v21.474h-20.93z" />
+                    </svg>
+                    <h3>Django</h3>
+                </div>
+                <!-- FastAPI -->
+                <div class="skill-card skill-fastapi">
+                    <i class="fas fa-bolt skill-icon"></i>
+                    <h3>FastAPI</h3>
+                </div>
+                <!-- Angular -->
+                <div class="skill-card skill-angular">
+                    <i class="fab fa-angular skill-icon"></i>
+                    <h3>Angular</h3>
+                </div>
+                <!-- Node.js -->
+                <div class="skill-card skill-node">
+                    <i class="fab fa-node-js skill-icon"></i>
+                    <h3>Node.js</h3>
+                </div>
+                <!-- HTML5 -->
+                <div class="skill-card skill-html">
+                    <i class="fab fa-html5 skill-icon"></i>
+                    <h3>HTML5</h3>
+                </div>
+                <!-- CSS3 -->
+                <div class="skill-card skill-css">
+                    <i class="fab fa-css3-alt skill-icon"></i>
+                    <h3>CSS3</h3>
+                </div>
+                <!-- SCSS -->
+                <div class="skill-card skill-sass">
+                    <i class="fab fa-sass skill-icon"></i>
+                    <h3>SCSS</h3>
+                </div>
+                <!-- JavaScript -->
+                <div class="skill-card skill-js">
+                    <i class="fab fa-js skill-icon"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <!-- GraphQL -->
+                <div class="skill-card skill-graphql">
+                    <!-- Official GraphQL SVG Logo -->
+                    <svg class="skill-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="3rem"
+                        height="3rem">
+                        <g fill="currentColor">
+                            <path d="M18.39 96.852l-4.6-2.657L65.04 5.434l4.597 2.656zm0 0" />
+                            <path d="M12.734 87.105H115.23v5.31H12.734zm0 0" />
+                            <path
+                                d="M66.031 119.688L14.766 90.09l2.656-4.602 51.266 29.602zm0 0M110.566 42.543L59.301 12.941l2.656-4.597 51.266 29.597zm0 0" />
+                            <path d="M17.434 42.523l-2.657-4.601 51.27-29.598 2.656 4.598zm0 0" />
+                            <path
+                                d="M109.621 96.852L58.375 8.09l4.598-2.656 51.25 88.761zm0 0M16.8 34.398h5.313v59.204h-5.312zm0 0" />
+                            <path d="M105.887 34.398h5.312v59.204h-5.312zm0 0" />
+                            <path d="M65.129 117.441l-2.32-4.02 44.586-25.745 2.32 4.02zm0 0" />
+                            <path
+                                d="M118.238 95.328c-3.07 5.344-9.918 7.168-15.261 4.098-5.344-3.074-7.168-9.922-4.098-15.266 3.074-5.344 9.922-7.168 15.266-4.097 5.375 3.105 7.199 9.921 4.093 15.265M29.09 43.84c-3.074 5.344-9.922 7.168-15.266 4.097-5.344-3.074-7.168-9.921-4.097-15.265 3.074-5.344 9.921-7.168 15.265-4.098 5.344 3.106 7.168 9.922 4.098 15.266M9.762 95.328c-3.075-5.344-1.25-12.16 4.093-15.266 5.344-3.07 12.16-1.246 15.266 4.098 3.07 5.344 1.246 12.16-4.098 15.266-5.375 3.07-12.191 1.246-15.261-4.098M98.91 43.84c-3.07-5.344-1.246-12.16 4.098-15.266 5.344-3.07 12.16-1.246 15.265 4.098 3.07 5.344 1.247 12.16-4.097 15.266-5.344 3.07-12.192 1.246-15.266-4.098M64 126.656a11.158 11.158 0 01-11.168-11.168A11.158 11.158 0 0164 104.32a11.158 11.158 0 0111.168 11.168c0 6.145-4.992 11.168-11.168 11.168M64 23.68a11.158 11.158 0 01-11.168-11.168A11.158 11.158 0 0164 1.344a11.158 11.158 0 0111.168 11.168A11.158 11.158 0 0164 23.68" />
+                        </g>
+                    </svg>
+                    <h3>GraphQL</h3>
+                </div>
+                <!-- PostgreSQL -->
+                <div class="skill-card skill-postgres">
+                    <i class="fas fa-database skill-icon"></i>
+                    <h3>PostgreSQL</h3>
+                </div>
+                <!-- Git -->
+                <div class="skill-card skill-git">
+                    <i class="fab fa-git-alt skill-icon"></i>
+                    <h3>Git</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools section-padding" id="tools">
+        <div class="container">
+            <h2 class="section-title">Tools I Know</h2>
+            <p class="section-subtitle">Essential tools for my workflow.</p>
+            <div class="skills-grid">
+                <!-- VS Code -->
+                <div class="skill-card skill-vscode">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h3>VS Code</h3>
+                </div>
+
+                <!-- GitHub -->
+                <div class="skill-card skill-github">
+                    <i class="fab fa-github skill-icon"></i>
+                    <h3>GitHub</h3>
+                </div>
+                <!-- Postman -->
+                <div class="skill-card skill-postman">
+                    <i class="fas fa-paper-plane skill-icon"></i>
+                    <h3>Postman</h3>
+                </div>
+                <!-- Figma -->
+                <div class="skill-card skill-figma">
+                    <i class="fab fa-figma skill-icon"></i>
+                    <h3>Figma</h3>
+                </div>
+                <!-- Photoshop -->
+                <div class="skill-card skill-photoshop">
+                    <i class="fas fa-palette skill-icon"></i>
+                    <h3>Photoshop</h3>
+                </div>
+                <!-- Adobe XD -->
+                <div class="skill-card skill-xd">
+                    <svg class="skill-icon" viewBox="0 0 100 100" width="3rem" height="3rem"
+                        style="fill: currentColor; color: #470137;">
+                        <!-- Simple Box Logo -->
+                        <rect x="10" y="10" width="80" height="80" rx="20" fill="none" stroke="currentColor"
+                            stroke-width="8" />
+                        <text x="50" y="65" font-family="sans-serif" font-weight="bold" font-size="40"
+                            text-anchor="middle" fill="currentColor">Xd</text>
+                    </svg>
+                    <h3>Adobe XD</h3>
+                </div>
+                <!-- Illustrator -->
+                <div class="skill-card skill-illustrator">
+                    <i class="fas fa-pen-nib skill-icon"></i>
+                    <h3>Illustrator</h3>
+                </div>
+                <!-- Canva -->
+                <div class="skill-card skill-canva">
+                    <i class="fas fa-magic skill-icon"></i>
+                    <h3>Canva</h3>
+                </div>
+                <!-- PyCharm -->
+                <div class="skill-card skill-pycharm">
+                    <i class="fas fa-terminal skill-icon"></i>
+                    <h3>PyCharm</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline centered-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="date">2024 - 2025</span>
+                        <h3>Computer Lab Technician</h3>
+                        <p class="institution">GPTC Nedumkandam</p>
+                        <p>Provided technical support in Labs, assisting faculty with setup and demonstration of
+                            experiments. Supported students during experiments and provided technical help with various
+                            programming languages such as C, Python, Java , HTML, CSS, JS ,PHP.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="date">2022 - 2023</span>
+                        <h3>Internship</h3>
+                        <p class="institution">Luminar Technolab Kochi</p>
+                        <p>Contributed to the development of web applications using Python, Django,sqlite or other
+                            relevant frameworks, ensuring functionality and user experience. Actively engaged in
+                            learning new technologies, tools, or frameworks to enhance skill sets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section (Darker) -->
+    <section class="projects section-padding" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">A glimpse into my completed projects.</p>
+
+            <div class="projects-wrapper">
+                <button class="scroll-nav-btn prev-btn" id="projects-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="projects-grid" id="projects-grid">
+
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-img">
+                                <img src="assets/project-1.png" alt="Bank App">
+                                <div class="project-overlay">
+                                    <a href="#" class="btn-icon"><i class="fas fa-search-plus"></i></a>
+                                    <a href="#" class="btn-icon"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Bank App</h3>
+                                <p>Responsive banking web application with authentication and core banking features.</p>
+                                <h3 class="tech-title">Technologies Used</h3>
+                                <div class="tags">
+                                    <span>Angular</span>
+                                    <span>HTML/CSS</span>
+                                    <span>Auth</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-img">
+                                <img src="assets/project-2.png" alt="Motive Zone">
+                                <div class="project-overlay">
+                                    <a href="#" class="btn-icon"><i class="fas fa-search-plus"></i></a>
+                                    <a href="#" class="btn-icon"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Motive Zone</h3>
+                                <p>Modern business landing page with reusable components and animations.</p>
+                                <h3 class="tech-title">Technologies Used</h3>
+                                <div class="tags">
+                                    <span>HTML/SCSS</span>
+                                    <span>JS</span>
+                                    <span>UIkit</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-img">
+                                <div
+                                    style="width: 100%; height: 100%; background: linear-gradient(45deg, #1a1a2e, #16213e); display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-car fa-3x" style="color: rgba(255,255,255,0.2);"></i>
+                                </div>
+                                <div class="project-overlay">
+                                    <a href="#" class="btn-icon"><i class="fas fa-search-plus"></i></a>
+                                    <a href="#" class="btn-icon"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-info ">
+                                <h3>Car Website</h3>
+                                <p>Responsive front-end car website with custom header, carousel, and animated cards.
+                                </p>
+                                <h3 class="tech-title">Technologies Used</h3>
+                                <div class="tags">
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-img">
+                                <img src="assets/project-2.png" alt="Kitchen Inventory">
+                                <div class="project-overlay">
+                                    <a href="#" class="btn-icon"><i class="fas fa-search-plus"></i></a>
+                                    <a href="#" class="btn-icon"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Kitchen Inventory</h3>
+                                <p>Management system for adding, editing, and deleting kitchen items with local storage.
+                                </p>
+                                <h3 class="tech-title">Technologies Used</h3>
+                                <div class="tags">
+                                    <span>HTML/CSS</span>
+                                    <span>JS</span>
+                                    <span>LocalStorage</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-img">
+                                <img src="assets/project-1.png" alt="IMDB Clone">
+                                <div class="project-overlay">
+                                    <a href="#" class="btn-icon"><i class="fas fa-search-plus"></i></a>
+                                    <a href="#" class="btn-icon"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>IMDB Clone App</h3>
+                                <p>Movie browsing application with authentication, CRUD operations, and RESTful APIs.
+                                </p>
+                                <h3 class="tech-title">Technologies Used</h3>
+                                <div class="tags">
+                                    <span>Django DRF</span>
+                                    <span>SQLite</span>
+                                    <span>API</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Project 6 -->
+                    <div class="project-card">
+                        <div class="project-card-inner">
+                            <div class="project-img">
+                                <img src="assets/project-1.png" alt="Greatkart">
+                                <div class="project-overlay">
+                                    <a href="#" class="btn-icon"><i class="fas fa-search-plus"></i></a>
+                                    <a href="#" class="btn-icon"><i class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Greatkart</h3>
+                                <p>Advanced e-commerce platform with email verification, invoice generation, and PayPal.
+                                </p>
+                                <h3 class="tech-title">Technologies Used</h3>
+                                <div class="tags">
+                                    <span>Python</span>
+                                    <span>Django</span>
+                                    <span>Payment</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="scroll-nav-btn next-btn" id="projects-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Default) -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">My Services</h2>
+            <p class="section-subtitle">What I can do for you. High-quality services for your business.</p>
+
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card glass-effect">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Web Development</h3>
+                    <p>Building responsive, high-performance websites using modern technologies like Angular, React,
+                        HTML5, and CSS3.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card glass-effect">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Frontend Design</h3>
+                    <p>Designing intuitive interactions and responsive layouts using SASS, Bootstrap, and UIkit.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card glass-effect">
+                    <div class="service-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>Backend Development</h3>
+                    <p>Creating robust APIs, database schemas, and secure server logic using Python, Django, and
+                        Node.js.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications (Darker) -->
+    <div id="education" class="edu-cert-wrapper section-padding">
+        <div class="container">
+            <div class="row">
+                <!-- Education -->
+                <div class="col-half">
+                    <h2 class="section-title text-left">Education</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <h3>Diploma In Computer Engineering</h3>
+                                <p class="institution">Govt Polytechnic College Nedumkandam Idukki</p>
+                                <span class="date">2021 (CGPA 7.3)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="col-half">
+                    <h2 class="section-title text-left">Certifications</h2>
+                    <div class="cert-grid">
+                        <div class="cert-card">
+                            <h3>Python Full Stack Development</h3>
+                            <p>Comprehensive training in frontend and backend technologies.</p>
+                            <span class="issuer">NACTET (2022-2023)</span>
+                        </div>
+                        <div class="cert-card">
+                            <h3>Python Programming</h3>
+                            <p>Beginner to advanced concepts.</p>
+                            <span class="issuer">2023</span>
+                        </div>
+                        <div class="cert-card">
+                            <h3>Hackathon Participation</h3>
+                            <p>Reboot Kerala Hackathon.</p>
+                            <span class="issuer">2020</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Resume Section -->
+    <!-- <section id="resume" class="resume-cta section-padding bg-dark">
+        <div class="container text-center">
+            <h2>Ready to see more?</h2>
+            <p>Download my comprehensive resume to get the full picture of my experience and skills.</p>
+            <a href="#" class="btn btn-primary btn-lg">Download My Resume <i class="fas fa-file-pdf"></i></a>
+        </div>
+    </section> -->
+
+    <!-- Contact Section -->
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content ">
+                <p>&copy;RajKumar. All rights reserved.</p>
+                <div class="footer-contact">
+                    <a href="tel:9633737856"><i class="fas fa-phone-alt"></i> 9633737856</a>
+                    <a href="mailto:rajkumarrptpm@gmail.com"><i class="fas fa-envelope"></i> rajkumarrptpm@gmail.com</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/_r.raj_kumar__" target="_blank" class="instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/919633737856" target="_blank" class="whatsapp"><i
+                            class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.facebook.com/hittler1999" target="_blank" class="facebook"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.linkedin.com/in/rajkumar-r-369bb9179/" target="_blank" class="linkedin"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/rajkumarrptpm" target="_blank" class="github"><i
+                            class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div class="project-modal" id="project-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-header">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- Slides injected via JS -->
+                    </div>
+                    <!-- Buttons removed as per user request -->
+                    <div class="carousel-indicators">
+                        <!-- Dots injected via JS -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <h3 class="modal-title">Project Title</h3>
+                <p class="modal-description">Detailed description of the project goes here.</p>
+                <div class="modal-tags">
+                    <!-- Tags injected via JS -->
+                </div>
+                <div class="modal-links">
+                    <a href="#" class="btn btn-primary" target="_blank">Live Demo <i
+                            class="fas fa-external-link-alt"></i></a>
+                    <a href="#" class="btn btn-outline" target="_blank">View Code <i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

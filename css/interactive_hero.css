@@ -1,0 +1,281 @@
+/* 
+========================================
+   Interactive Hero Section
+========================================
+*/
+.interactive-hero {
+    position: relative;
+    width: 100%;
+    margin-top: 70px;
+    /* Exact header height */
+    min-height: calc(100vh - 70px);
+    /* Fill remaining viewport */
+    overflow: hidden;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+}
+
+/* The Grid Trigger Cells - Localized */
+.grid-cell {
+    position: absolute;
+    z-index: 20;
+    width: 33.33%;
+    height: 33.33%;
+    background: transparent;
+    /* pointer-events: auto is default, allowing hover */
+}
+
+/* Positioning */
+.cell-1 {
+    top: 0;
+    left: 0;
+}
+
+.cell-2 {
+    top: 0;
+    left: 33.33%;
+}
+
+.cell-3 {
+    top: 0;
+    right: 0;
+}
+
+.cell-4 {
+    top: 33.33%;
+    left: 0;
+}
+
+.cell-5 {
+    top: 33.33%;
+    left: 33.33%;
+}
+
+.cell-6 {
+    top: 33.33%;
+    right: 0;
+}
+
+.cell-7 {
+    bottom: 0;
+    left: 0;
+}
+
+.cell-8 {
+    bottom: 0;
+    left: 33.33%;
+}
+
+.cell-9 {
+    bottom: 0;
+    right: 0;
+}
+
+/* Content Container - Absolute on top of background but below triggers visually if needed, 
+   but technically we need it to be a sibling rendered *after* or controlled by siblings. 
+   Since cells are siblings 1-9, content is sibling 10. */
+/* Content Container */
+.hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Let hover pass through to grid */
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Override global button margin for better vertical centering */
+.hero-buttons {
+    margin-bottom: 0 !important;
+}
+
+.hero-split-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    /* Match standard container */
+    padding: 0 2rem;
+    gap: 2rem;
+}
+
+.hero-text {
+    flex: 1;
+    text-align: left;
+    flex: 1;
+    text-align: left;
+    color: var(--text-main);
+    max-width: 600px;
+    pointer-events: auto;
+    /* Enable clicks */
+}
+
+/* Ensure buttons are clickable */
+.hero-buttons a {
+    pointer-events: auto;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    width: 100%;
+    height: 100%;
+    height: 100%;
+    /* Soft white/light overlay for text readability */
+    background: rgba(248, 250, 252, 0.4);
+    backdrop-filter: blur(2px);
+    transition: all 0.5s ease;
+    z-index: -1;
+}
+
+/* Darken overlay on hover of the section */
+.interactive-hero:hover .hero-bg-overlay {
+    background: rgba(248, 250, 252, 0.2);
+}
+
+.hero-image-container {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+    /* Enable interaction for localized grid */
+}
+
+.hero-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 60px rgba(30, 64, 175, 0.25);
+    filter: brightness(1.1) contrast(1.1);
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    pointer-events: none;
+    object-fit: initial;
+    /* Let clicks pass through if needed, but triggers are on top */
+}
+
+/* 
+   Interaction Logic (Sibling Selectors) 
+   Triggers are siblings of the img within .hero-image-container
+*/
+
+/* Top Left */
+.cell-1:hover~.hero-main-img {
+    transform: translate(20px, 20px);
+}
+
+/* Top Center */
+.cell-2:hover~.hero-main-img {
+    transform: translate(0, 20px);
+}
+
+/* Top Right */
+.cell-3:hover~.hero-main-img {
+    transform: translate(-20px, 20px);
+}
+
+/* Middle Left */
+.cell-4:hover~.hero-main-img {
+    transform: translate(20px, 0);
+}
+
+/* Middle Center - Scale Up */
+.cell-5:hover~.hero-main-img {
+    transform: scale(1.1);
+}
+
+/* Middle Right */
+.cell-6:hover~.hero-main-img {
+    transform: translate(-20px, 0);
+}
+
+/* Bottom Left */
+.cell-7:hover~.hero-main-img {
+    transform: translate(20px, -20px);
+}
+
+/* Bottom Center */
+.cell-8:hover~.hero-main-img {
+    transform: translate(0, -20px);
+}
+
+/* Bottom Right */
+.cell-9:hover~.hero-main-img {
+    transform: translate(-20px, -20px);
+}
+
+/* Middle Right */
+.cell-6:hover~.hero-content .hero-image-container {
+    transform: translate(-30px, 0);
+}
+
+/* Bottom Left */
+.cell-7:hover~.hero-content .hero-image-container {
+    transform: translate(30px, -30px);
+}
+
+/* Bottom Center */
+.cell-8:hover~.hero-content .hero-image-container {
+    transform: translate(0, -30px);
+}
+
+/* Bottom Right */
+.cell-9:hover~.hero-content .hero-image-container {
+    transform: translate(-30px, -30px);
+}
+
+/* Responsiveness */
+@media (max-width: 900px) {
+    .interactive-hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        height: auto;
+        min-height: 100vh;
+        overflow-y: auto;
+    }
+
+    .hero-split-layout {
+        flex-direction: column-reverse;
+        /* Text bottom, Image top usually works better for "hero" visuals, but let's stick to standard flow: Image top? User said Text Left. Stacked: Text Top usually. Let's do Text, then Image. */
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 100px;
+        padding-bottom: 50px;
+        text-align: center;
+    }
+
+    .hero-text {
+        text-align: center;
+        margin-bottom: 2rem;
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .grid-cell {
+        display: none;
+    }
+
+    .hero-image-container {
+        width: 280px;
+        height: 280px;
+    }
+}
