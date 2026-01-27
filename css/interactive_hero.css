@@ -6,15 +6,15 @@
 .interactive-hero {
     position: relative;
     width: 100%;
-    margin-top: 70px;
-    /* Exact header height */
-    min-height: calc(100vh - 70px);
-    /* Fill remaining viewport */
+    margin-top: 0;
+    min-height: 100vh;
     overflow: hidden;
     scroll-snap-align: start;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: var(--header-height);
+    /* Base padding for desktop */
     background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
 }
 
@@ -247,17 +247,18 @@
         grid-template-rows: 1fr;
         height: auto;
         min-height: 100vh;
-        overflow-y: auto;
+        overflow-y: visible;
+        /* Fix internal scroll */
     }
 
     .hero-split-layout {
-        flex-direction: column-reverse;
-        /* Text bottom, Image top usually works better for "hero" visuals, but let's stick to standard flow: Image top? User said Text Left. Stacked: Text Top usually. Let's do Text, then Image. */
         flex-direction: column;
         justify-content: center;
-        padding-top: 100px;
-        padding-bottom: 50px;
+        padding-top: calc(var(--header-height) + 2rem);
+        /* Clear fixed header */
+        padding-bottom: 4rem;
         text-align: center;
+        gap: 1.5rem;
     }
 
     .hero-text {

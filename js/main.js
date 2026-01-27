@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     mobileMenuBtn.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         mobileMenuBtn.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
 
         // Simple hamburger animation toggle
         const bars = mobileMenuBtn.querySelectorAll('.bar');
@@ -27,6 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('active');
             mobileMenuBtn.classList.remove('active');
+            document.body.style.overflow = '';
+
             const bars = mobileMenuBtn.querySelectorAll('.bar');
             bars[0].style.transform = 'none';
             bars[1].style.opacity = '1';

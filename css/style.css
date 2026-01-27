@@ -9,8 +9,9 @@
     --primary-hover: #1D4ED8;
     --bg-dark: #F8FAFC;
     /* Mapping 'Background' to main bg variable */
-    --bg-darker: #FFFFFF;
-    /* Mapping 'Surface' to secondary bg variable */
+    /* UI Elements */
+    --header-height: 70px;
+    --white: #ffffff;
     --bg-card: #FFFFFF;
 
     /* Text Colors */
@@ -29,6 +30,14 @@
     /* Typography */
     --font-heading: 'Inter', 'Poppins', sans-serif;
     --font-body: 'Inter', system-ui, sans-serif;
+
+    /* Fluid Typography Scale */
+    --fs-h1: clamp(1.75rem, 4vw + 1rem, 3.5rem);
+    /* Reduced from 2rem/4.5rem for single line mobile */
+    --fs-h2: clamp(2rem, 4vw + 1rem, 3rem);
+    --fs-h3: clamp(1.5rem, 3vw + 0.5rem, 2rem);
+    --fs-body: clamp(1rem, 1vw + 0.8rem, 1.125rem);
+    --fs-small: clamp(0.875rem, 1vw + 0.5rem, 1rem);
 
     --transition: all 0.3s ease;
 }
@@ -74,6 +83,7 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
+    font-size: var(--fs-body);
     /* cursor: none; Removed to show default mouse */
 }
 
@@ -274,17 +284,20 @@ img {
 */
 .container {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 clamp(1rem, 5vw, 2rem);
 }
 
 .section-padding {
-    padding-top: 70px;
-    padding-bottom: 4rem;
-    min-height: 90vh;
+    padding-top: var(--header-height, 80px);
+    /* Ensure clearance */
+    padding-bottom: clamp(3rem, 8vw, 6rem);
+    min-height: auto;
+    /* Remove rigid 90vh min-height for mobile flow */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .bg-darker {
@@ -301,8 +314,9 @@ img {
 
 .section-title {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
-    color: var(--text-main);
+    font-size: var(--fs-h2);
+    color: #000000;
+    /* Solid Black */
     text-align: center;
     margin-bottom: 1rem;
     position: relative;
@@ -514,7 +528,8 @@ img {
 
 .greeting {
     display: block;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2.5vw + 0.5rem, 1.8rem);
+    /* Increased size */
     color: var(--primary-color);
     font-weight: 600;
     margin-bottom: 0.5rem;
@@ -522,10 +537,17 @@ img {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: var(--fs-h1);
     line-height: 1.1;
     margin-bottom: 1.5rem;
     font-weight: 800;
+    white-space: nowrap;
+    /* Force single line as requested */
+    overflow: hidden;
+    /* Safety */
+    text-overflow: ellipsis;
+    /* Graceful degrade */
+    max-width: 100%;
     font-weight: 800;
     color: var(--text-main);
 }
@@ -675,8 +697,9 @@ img {
 */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Reduced min-width to fit narrower phones */
+    gap: clamp(1.5rem, 3vw, 2.5rem);
     margin-top: 3rem;
 }
 
@@ -708,7 +731,7 @@ img {
 }
 
 .service-card h3 {
-    font-size: 1.5rem;
+    font-size: var(--fs-h3);
     color: var(--text-main);
     margin-bottom: 1rem;
     font-family: var(--font-heading);
@@ -777,7 +800,7 @@ img {
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 2rem;
+    gap: clamp(1rem, 2vw, 2rem);
     margin-top: 2rem;
 }
 
@@ -1002,11 +1025,12 @@ img {
 }
 
 /* Section Title Overrides */
-#tools .section-title,
+/* Section Title Overrides Removed to ensure Black color consistency */
+/* #tools .section-title,
 #education .section-title,
 #experience .section-title {
-    color: var(--primary-color);
-}
+    color: var(--primary-color); 
+} */
 
 .skill-graphql:hover .skill-icon {
     color: #E10098;
@@ -1046,7 +1070,7 @@ img {
 
 
 .skill-card h3 {
-    font-size: 1.1rem;
+    font-size: var(--fs-body);
     font-weight: 600;
     color: var(--text-main);
     margin-bottom: 0.5rem;
@@ -1097,7 +1121,8 @@ img {
     font-family: var(--font-heading);
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: var(--white);
+    color: var(--text-main);
+    /* Changed from white to black/dark */
 }
 
 .timeline-content .institution {
@@ -1244,36 +1269,46 @@ img {
 @media (max-width: 768px) {
     .projects-wrapper {
         padding: 0;
-        gap: 0.5rem;
+        gap: 0;
+        /* Remove gap to let padding handle spacing or keep small if needed */
     }
 
-    .scroll-nav-btn {
-        font-size: 2rem;
-        padding: 0 10px;
-        /* Hit area */
-    }
-
-    .prev-btn {
-        display: flex;
-        /* Ensure visible */
-    }
-
+    /* Hide arrows explicitly */
+    .scroll-nav-btn,
+    .prev-btn,
     .next-btn {
-        display: flex;
+        display: none !important;
+    }
+
+    .projects-grid {
+        /* Add padding to show edges and allow scrolling */
+        padding: 2rem 1rem 4rem 1rem;
+        gap: 1rem;
+        /* Space between cards */
+        scroll-snap-type: x mandatory;
+        overflow-x: auto;
     }
 
     .project-card {
-        flex: 0 0 280px;
-        width: 280px;
+        /* 85% width to show 1 full card + 15% of next one (approx) */
+        flex: 0 0 85vw;
+        width: 85vw;
+        max-width: 85vw;
+        /* Ensure it doesn't stay fixed at 280px */
+        scroll-snap-align: center;
+        /* smooth centering */
+        margin-right: 0;
     }
+
+    /* Mobile Typography Adjustments replaced by clamp() */
 }
 
 .project-card {
     flex: 0 0 280px;
     width: 280px;
     min-width: 280px;
-    height: 420px;
-    /* Increased from 380px */
+    /* Increased from 420px to accommodate more content */
+    height: 480px;
     scroll-snap-align: center;
     background: transparent;
     border-radius: 16px;
@@ -1420,6 +1455,8 @@ img {
     position: relative;
     width: 100%;
     padding: 1.2rem;
+    padding-bottom: 2rem;
+    /* Added extra bottom padding */
     flex: 1;
     /* Changed to flex-grow to fill space */
     background: rgba(30, 64, 175, 0.1);
@@ -1469,6 +1506,7 @@ img {
     /* Remove line clamp to show full text if space allows, or keep clean */
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -1479,6 +1517,10 @@ img {
     flex-wrap: wrap;
     margin-top: 0;
     /* Margin handled by title now */
+    min-height: 3.5rem;
+    /* Reserve space for 2 lines of tags to align header */
+    align-content: flex-start;
+    /* Ensure tags start at top */
 }
 
 .tags span {
@@ -1539,13 +1581,16 @@ img {
 .form-group input,
 .form-group textarea {
     width: 100%;
+    max-width: 100%;
+    /* Prevent overflow */
     padding: 1rem;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     color: var(--text-main);
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: var(--fs-body);
+    /* Fluid, accessible size */
     transition: var(--transition);
     resize: none;
 }
@@ -1775,18 +1820,75 @@ footer {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 80%;
+        /* Start off-screen RIGHT */
+        left: auto;
+        /* Reset left */
+        width: 75%;
+        /* 75% width as requested */
+        max-width: 300px;
         height: 100vh;
-        background: rgba(15, 23, 42, 0.98);
+        background: rgba(255, 255, 255, 0.98);
+        /* Light background to match header */
         backdrop-filter: blur(15px);
         flex-direction: column;
         justify-content: center;
+        align-items: flex-end;
+        /* Right Align Items */
+        gap: 1.5rem;
+        /* Reduced Gap as requested */
         transition: var(--transition);
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        /* Shadow to the LEFT */
+        padding: 2rem;
+        padding-right: 3rem;
+        /* Consistent right padding */
+        padding-left: 2rem;
+    }
+
+    .nav-menu .nav-link {
+        font-size: 1.25rem;
+        /* Slightly smaller for tighter list */
+        display: block;
+        padding: 0.5rem 0;
+        /* Reduced vertical padding */
+        width: 100%;
+        /* Full width for tap target */
+        text-align: right;
+        /* Explicit right align */
+        color: var(--text-main);
+        /* Ensure dark text */
     }
 
     .nav-menu.active {
         right: 0;
+        /* Slide in from right */
+        left: auto;
+    }
+
+    /* Mobile Contact Item Fix */
+    .nav-menu .contact-btn {
+        background: transparent;
+        color: var(--text-muted);
+        /* Default Grey like desktop */
+        padding: 0.5rem 1.5rem;
+        border: 2px solid var(--text-muted);
+        /* Default Grey border */
+        border-radius: 50px;
+        width: auto;
+        display: inline-block;
+        margin-top: 0.5rem;
+        text-align: center;
+        transition: var(--transition);
+    }
+
+    .nav-menu .contact-btn:hover {
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+        background: transparent;
+    }
+
+    .nav-menu .nav-link:hover {
+        color: var(--primary-color);
     }
 
     .edu-cert-wrapper .row {
