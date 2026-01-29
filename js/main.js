@@ -281,10 +281,16 @@ ${email}`;
             const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
             if (isMobile) {
-                // Mobile-only Logic
-                const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=rajkumarrptpm@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-                // window.open(gmailUrl, '_blank');
-                window.location.href = gmailUrl;
+                // Mobile-only Logic: Open WhatsApp
+                const whatsappMessage = `*Name*: ${name}
+*Email*: ${email}
+*Subject*: ${subject}
+*Message*: ${message}`;
+
+                const whatsappUrl = `https://wa.me/919633737856?text=${encodeURIComponent(whatsappMessage)}`;
+
+                // Use location.href to ensure it opens the app/web
+                window.location.href = whatsappUrl;
             } else {
                 // Existing Desktop Logic (Unchanged)
                 const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=rajkumarrptpm@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
