@@ -283,7 +283,8 @@ ${email}`;
             if (isMobile) {
                 // Mobile-only Logic
                 const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=rajkumarrptpm@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-                window.open(gmailUrl, '_blank');
+                // window.open(gmailUrl, '_blank');
+                window.location.href = gmailUrl;
             } else {
                 // Existing Desktop Logic (Unchanged)
                 const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=rajkumarrptpm@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
