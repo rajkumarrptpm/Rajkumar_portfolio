@@ -77,8 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             title: "Motive Zone",
-            image: "assets/project-2.png",
-            images: ["assets/project-2.png"],
+            image: "assets/mz1.png",
+            images: ["assets/mz1.png", "assets/wg1.png"],
             description: "Developed a modern, responsive business landing page. Utilized HTML, SCSS, JavaScript, and UIkit. Implemented custom header and advanced CSS transitions.",
             tags: ["HTML/SCSS", "JavaScript", "UIkit"],
             liveLink: "#",
@@ -277,16 +277,18 @@ Regards,
 ${name}
 ${email}`;
 
-            // Construct Gmail Compose URL
-            // view=cm (compose mode)
-            // fs=1 (fullscreen)
-            // to=recipient
-            // su=subject
-            // body=message body
-            const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=rajkumarrptpm@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+            // Detect Mobile Device
+            const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-            // Open in new tab
-            window.open(gmailUrl, '_blank');
+            if (isMobile) {
+                // Mobile-only Logic
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=rajkumarrptpm@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+                window.open(gmailUrl, '_blank');
+            } else {
+                // Existing Desktop Logic (Unchanged)
+                const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=rajkumarrptpm@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+                window.open(gmailUrl, '_blank');
+            }
         });
     }
 
